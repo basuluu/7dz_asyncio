@@ -1,0 +1,6 @@
+port: 8082
+directory:
+node_list:
+    - host: localhost
+      port: 8081
+save: True
