@@ -21,12 +21,15 @@ class Daemon():
                 self.save_flag = data['save']
             except yaml.YAMLError as exc:
                 print(exc)
-        self._daemon = web.Application()
-        self._daemon.add_routes([
+        self.run()
+
+    def run(self):
+        daemon = web.Application()
+        daemon.add_routes([
             web.get('/{name}', self.handle_get),
             web.delete('/{name}', self.handle_delete),
         ])
-        web.run_app(self._daemon, port=self.port)
+        web.run_app(daemon, port=self.port)
 
     async def check(self, request):
         name = request.match_info.get('name')
