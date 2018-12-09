@@ -1,6 +1,6 @@
-port: 8082
+port: 8080
 directory:
 node_list:
-    - host: 
-      port: 
+    - host: localhost
+      port: 8081
 save: True
