@@ -4,7 +4,6 @@ import asyncio
 import aiofiles
 import os
 import yaml
-import threading
 
 class Daemon():
     def __init__(self, config):
@@ -55,7 +54,6 @@ class Daemon():
                     await f.write(text)
             return web.Response(text=text)
         return web.Response(status=404)
-
 
     async def handle_delete(self, request):
         text, _ = await self.check(request)
